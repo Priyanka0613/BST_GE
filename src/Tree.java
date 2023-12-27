@@ -38,4 +38,18 @@ public class Tree<T extends Comparable <T>> {
         if(current == null) return 0;
         return (sizeFunction(current.left) + sizeFunction(current.right) + 1);
     }
+
+    public boolean search(Node<T> root, T key){
+        Node<T> current=root;
+        if(current == null){ return false; }
+        if(current.data == key) return true;
+
+        if(root.data.compareTo(key) > 0){
+            if(search(current.left, key)) return true;
+        }
+        else{
+            if(search(current.right, key)) return true;
+        }
+        return false;
+    }
 }
