@@ -33,4 +33,9 @@ public class Tree<T extends Comparable <T>> {
         postorderFunction(current.right);
         System.out.print(current.data + " ");
     }
+
+    public int sizeFunction(Node<T> current){
+        if(current == null) return 0;
+        return (sizeFunction(current.left) + sizeFunction(current.right) + 1);
+    }
 }
